@@ -1,0 +1,241 @@
+* {
+    filter:invert(1) !important;
+}
+html, body{
+    width: 100%;
+}
+body{
+    display:flex;
+    flex-direction: column;
+}
+img{
+    filter:invert(0) !important;    
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.title-text{
+    font-size: x-large;
+    font-weight: bold;
+}
+.name-text{
+    font-size: large;
+}
+.content-text{
+    font-size: medium;
+}
+
+.background{
+    width:100%;
+}
+
+.personal-information{
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.course-table-background{
+    background-image: url("https://s3.ap-southeast-1.amazonaws.com/web-content.fcu.edu.tw/wp-content/uploads/2020/10/26093447/%E9%A6%96%E9%A0%81_%E7%B8%AE%E5%9C%96-20200218-017-105A2164.jpg");
+    color:white;
+    height:auto;
+    width:100%;
+    padding:40px 0px;
+}
+.course-table-background h2{
+    color:black;
+}
+.course-table{
+    height:80%;
+    width:60%; 
+    background:rgba(0,0,0,0);
+    align-items: center;
+}
+.course-table tr{
+    height:50px;
+}
+.course-table th,td{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    border: 5px solid rgba(0,0,0,0);
+    padding-top:10px;
+    padding-bottom:5px;
+    width:16.5%;
+    
+}
+.course-table th{
+    background:rgba(173, 147, 74,0);
+    background-clip: padding-box;
+}
+.course-table td{
+    background:rgba(173, 147, 74,0.9);
+    background-clip: padding-box;
+}
+.course-table td:hover{
+    background:rgba(173, 147, 74,0.6);
+    background-clip: padding-box;
+}
+
+
+
+.course-info{
+    background:rgba(255,255,255,0.5);
+    border-radius: 25px;
+    height:500px;
+    width:35%;
+    max-width: 330px;
+    padding:50px;
+    color: white;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.course-info div{
+    margin:0;
+    border:0;
+    padding:0;
+}
+.course-name{
+    color:black;
+}
+.teacher-link{
+    color:yellow;
+}
+.teacher-img{
+    filter:invert(1) !important;
+    max-height: 160px;
+    max-width:120px;
+    overflow: hidden;
+    float:left;
+}
+
+
+.other{
+    background:rgba(36, 35, 33,1);
+    font-size: x-large;
+}
+
+.hobbies{
+    justify-content: flex-start;
+    background:rgba(0,0,0, 0.5);
+    margin:40px;
+    border-radius: 25px;
+    padding:40px;
+    height: 420px;
+    color:black;
+}
+.hobbies li{
+    color:white;
+}
+.dream{
+    justify-content: flex-start;
+    background:rgba(0,0,0, 0.5);
+    margin:40px;
+    border-radius: 25px;
+    padding:40px;
+    height: 420px;
+    color:black;
+}
+.dream li{
+    color:white;
+}
+.favorite-movie{
+    justify-content: space-around;
+    align-items:flex-start;
+    background:rgba(0,0,0, 0.5);
+    margin:40px;
+    border-radius: 25px;
+    padding:40px;
+    height: 420px;
+    width:30%;
+    color:black;
+}
+.favorite-movie h2{
+    color:white;
+}
+
+
+.story-background{
+    background-image: url("https://a-static.besthdwallpaper.com/sunrise-field-wallpaper-3840x2160-1729_54.jpg");
+    background-size: cover;
+}
+.story{
+    background:rgba(0,0,0,0.5);
+    justify-content: flex-start;
+    margin: 40px;
+    border-radius: 25px;
+    padding: 40px;
+    width:95%;
+}
+.story p::first-letter{
+    font-size: x-large;
+}
+.story h4{
+    align-self: center;
+}
+.story h6{
+    align-self: flex-end;
+}
+
+
+
+.footer{
+    justify-content: space-between;
+    background:rgba(36, 35, 33,1);
+    color:rgba(255,255,255,1);
+    padding: 40px;
+}
+
+img[alt="my picture"]{
+    border-radius: 50%;
+    height:200px;
+    width:200px;
+    
+}
+.personal-img:hover{
+    animation-name:trickCircle;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    border:solid 2px rgb(255, 0, 0)
+}
+@keyframes trickCircle{
+    0%{
+        border:solid 2px rgb(255, 0, 0);
+    }
+    10%{
+        border:solid 2px rgb(255, 115, 0);
+    }
+    25%{
+        border:solid 2px rgb(255, 230, 0);
+    }
+    40%{
+        border:solid 2px rgb(0, 255, 42);
+    }
+    55%{
+        border:solid 2px rgb(0, 255, 255);
+    }
+    70%{
+        border:solid 2px rgb(0, 102, 255);
+    }
+    85%{
+        border:solid 2px rgb(255, 0, 255);
+    }
+    100%{
+        border:solid 2px rgb(255, 0, 140);
+    }
+}
+.class_room{
+    font-size: 10px;
+}
+
+#carouselExampleControls{
+    width:50%;
+}

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "optiic": "^0.0.14",
+    "request": "^2.88.2"
+  }
+}

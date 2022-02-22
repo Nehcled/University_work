@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        div{
+            padding:10px;
+            width:350px;
+        }
+        .background{
+            border:solid black 1px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <h1>五倍券刺激消費算算看</h1>
+        <button type="button">算算看</button>
+        <p>政府預估的補助花費是: <span class="estimateSubsidy"></span></p>
+        <p>真實花費的五倍券金額: <span class="couponTotalSpend"></span></p>
+        <p>刺激民間消費: <span class="increaseSpend"></span></p>
+    </div>
+    
+    <script>
+        const units = ["","千","百萬","十億","兆"];
+        const population = 23000000;
+        const couponReceivedRatio = 0.9;
+        const coupon = 5000;
+        const eReceiveRatio = 0.3;
+        const eUsedRatio = 0.9;
+        const eTotalSpend = 9000;
+        const pReceiveRatio = 0.7;
+        const pUsedRatio = 0.8;
+        const pTotalSpend = 5900;
+     
+        function coculateResult(){
+            let couponReceivedPopulation = population * couponReceivedRatio;
+            let eCouponUsedPopulation = couponReceivedPopulation * eReceiveRatio * eUsedRatio;
+            let pCouponUsedPopulation = couponReceivedPopulation * pReceiveRatio * pUsedRatio;
+
+            return {
+                "estimateSubsidy":couponReceivedPopulation * coupon,
+                "couponTotalSpend": (eCouponUsedPopulation + pCouponUsedPopulation) * coupon,
+                "increaseSpend":eCouponUsedPopulation * eTotalSpend + pCouponUsedPopulation * pTotalSpend
+            }
+        }   
+
+        function transUnit(val){
+            return `${(val/Math.pow(10,Math.floor(Math.log10(val)/3)*3)).toFixed(4)}${units[Math.floor(Math.log10(val)/3)]}`;
+        }
+
+        function printResult(data){
+            $(".estimateSubsidy").text(transUnit(data.estimateSubsidy));
+            $(".couponTotalSpend").text(transUnit(data.couponTotalSpend));
+            $(".increaseSpend").text(transUnit(data.increaseSpend));
+        }   
+
+        $("button").click(()=>{
+            let result = coculateResult();
+            printResult(result);
+        });
+        
+
+
+    </script>
+</body>
+</html>

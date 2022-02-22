@@ -1,0 +1,16 @@
+{% extends "base.html"%}
+
+{% block prize %}
+
+<h2>獎項超級多</h2>
+<ul>
+    {% for p in prize_list %}
+        <li>{{p.pid}}, {{p.cname}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
+{% block prize_desc %}
+    <img class="rounded mx-auto d-block" src="/static/images/drawPirze.jpeg" width="600">
+{% endblock %}

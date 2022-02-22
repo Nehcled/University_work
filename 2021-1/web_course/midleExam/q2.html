@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <script>var winNo1 = {
+        "domesticTravel": ["21", "32", "98", "67", "97", "410"],
+        "iYuan": ["64", "85"],
+        "agriculture": ["89", "32", "54", "597", "453", "152"],
+        "artFunE": ["96", "15", "07", "30", "73", "98", "19", "11"],
+        "artFunP": ["39", "37", "23", "36", "79", "08", "14", "75"],
+        "sports": ["97", "13", "19", "55", "71", "93", "381", "734", "644", "453", "985"],
+        "hakka": ["81", "900"],
+        "rgionalRevitalization": ["081", "105", "594", "188", "089", "396", "521", "467", "912", "798", "358", "441", "367", "941", "335"]
+    };
+
+    var name_mapping = {
+        "domesticTravel": "國旅劵",
+        "iYuan": "i 原劵",
+        "agriculture": "農遊劵",
+        "artFunE": "藝Fun劵 數位",
+        "artFunP": "旅遊劵 紙本",
+        "sports": "動滋劵",
+        "hakka": "客庄劵",
+        "rgionalRevitalization": "地方創生劵"
+    };
+    let body = $("body").append($("<div></div>").addClass("jumbotron jumbotron-fluid").append($("<div></div>").addClass("container").append($("<h1></h1>").addClass("display-4").text("加碼券"),$("<p></p>").addClass("lead").text("周周開獎，祝你好運領不完"))))
+        let container = $("<div></div>").addClass("container");
+        let row = $("<div></div>").addClass("row");
+        for(const key in name_mapping){
+            let block = $("<div></div>").addClass(`${key} col-6 col-sm-6 col-md-3`);
+            let img = $("<img>").attr("src",`./img/${key}.png`).css("width","100%");
+            let text = $("<p></p>").text(name_mapping[key]);
+            let circles = $("<div></div>").css({"display":"flex","flex-direction":"row","width":"100%","flex-wrap":"wrap"})
+            block.append(img,text,circles);
+            for(const num of winNo1[key]){
+                let circle = $("<div></div>").text(num).css({"border":"solid orange 2px","color":"red","border-radius":"50%","width":"40px","text-align":"center"})
+                circles.append(circle);
+            }
+            row.append(block);
+        }
+        container.append(row);
+        $("body").append(container);
+
+    </script>
+
+
+</body>
+
+</html>

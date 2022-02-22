@@ -1,0 +1,90 @@
+{
+    "1356": {
+        "course":"離散數學",
+        "teacher": "劉怡芬",
+        "time":[[1,2],[4,3],[4,4]],
+        "teacher_link":"https://www.iecs.fcu.edu.tw/teacher/%E5%8A%89%E6%80%A1%E8%8A%AC/",
+        "teacher_img":"https://www.iecs.fcu.edu.tw/media/img/teacher/avatar/T27_YFLiu.jpg",
+        "classroom":["資電404","資電B04"]
+    },
+    "1362":{
+        "course":"Web程式設計",
+        "teacher": "薛念林 教授",
+        "time":[[1,3],[1,4],[2,8]],
+        "teacher_link":"https://www.iecs.fcu.edu.tw/teacher/nlhsueh/",
+        "teacher_img":"https://www.iecs.fcu.edu.tw/media/img/teacher/avatar/IMG_2906.png",
+        "classroom":["資電248","資電B02"]
+    },
+    "1370":{
+        "course":"密碼學",
+        "teacher": "李榮三 教授",
+        "time":[[1,8],[2,3],[2,4]],
+        "teacher_link":"https://www.iecs.fcu.edu.tw/teacher/leejs/",
+        "teacher_img":"https://www.iecs.fcu.edu.tw/media/img/teacher/avatar/LEo_2021a.png",
+        "classroom":["科航206"]
+    },
+    "1355":{
+        "course":"資料結構",
+        "teacher": "江庭輝 助理教授",
+        "time":[[2,6],[2,7],[3,2]],
+        "teacher_link":"https://www.iecs.fcu.edu.tw/teacher/%E6%B1%9F%E5%BA%AD%E8%BC%9D/",
+        "teacher_img":"https://www.iecs.fcu.edu.tw/media/img/teacher/avatar/T08030.jpg",
+        "classroom":["資電402","資電B04"]
+    },
+    "1354":{
+        "course":"資料結構實習",
+        "teacher": "江庭輝",
+        "time":[[3,6],[3,7],[3,8]],
+        "teacher_link":"https://www.iecs.fcu.edu.tw/teacher/%E6%B1%9F%E5%BA%AD%E8%BC%9D/",
+        "teacher_img":"https://www.iecs.fcu.edu.tw/media/img/teacher/avatar/T08030.jpg",
+        "classroom":["圖213"]
+    },
+    "1353":{
+        "course":"通訊與網路概論",
+        "teacher": "洪維志",
+        "time":[[3,3],[3,4],[4,2]],
+        "teacher_link":"https://www.iecs.fcu.edu.tw/teacher/wchong/",
+        "teacher_img":"https://www.iecs.fcu.edu.tw/media/img/teacher/avatar/Hong.jpg",
+        "classroom":["資電B04","資電104"]
+    },
+    "0306":{
+        "course":"行銷管理",
+        "teacher": "李悅端",
+        "time":[[4,7],[4,8],[4,9]],
+        "teacher_link":"https://marketing.fcu.edu.tw/teachers-detail/?id=T05064&unit_id=CB26",
+        "teacher_img":"",
+        "classroom":["商306"]
+    },
+    "3108":{
+        "course":"智慧生活與大數據物聯網應用",
+        "teacher": "王銘源",
+        "time":[[2,11],[2,12]],
+        "teacher_link":"",
+        "teacher_img":"",
+        "classroom":["紀302"]
+    },
+    "3058":{
+        "course":"打造自我品牌─職能加值課程",
+        "teacher": "蔡國鼎",
+        "time":[[5,7],[5,8]],
+        "teacher_link":"https://genedu.fcu.edu.tw/teachers-detail/?id=T09060&unit_id=GE00",
+        "teacher_img":"",
+        "classroom":["育103"]
+    },
+    "1352":{
+        "course":"班級活動",
+        "teacher": "劉明機",
+        "time":[[1,10]],
+        "teacher_link":"https://www.iecs.fcu.edu.tw/teacher/%E5%8A%89%E6%98%8E%E6%A9%9F/",
+        "teacher_img":"https://www.iecs.fcu.edu.tw/media/img/teacher/avatar/pic_02726.jpg",
+        "classroom":[]
+    },
+    "3323":{
+        "course":"大二英文(一)",
+        "teacher": "Dawn-Marie Letourneau",
+        "time":[[5,2],[5,3],[5,4]],
+        "teacher_link":"https://genedu.fcu.edu.tw/teachers-detail/?id=T10013&unit_id=GE00",
+        "teacher_img":"",
+        "classroom":["紀110"]
+    }
+}

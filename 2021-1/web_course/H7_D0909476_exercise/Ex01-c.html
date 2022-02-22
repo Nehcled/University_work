@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1 class="display-4">五倍券刺激消費算算看</h1>
+        <p class="lead">五倍券真的可以刺激消費嗎?讓我們算算看!</p>
+    </div>
+    <div>
+        <form> 
+            <p>人口</p>
+            <input type="number" name="population" value = "23000000" placeholder="ex:23000000  /人">
+    
+            <p>預估領取比例</p>
+            <input type="number" name="coupon-receive-ratio" value = "90" placeholder="ex:90  /%">
+    
+            <p>五倍券金額</p>
+            <input type="number" name="coupon" value = "5000" placeholder="ex:5000  /元">
+        </form>
+    </div>
+    <div style="margin-top: 10px;">
+        <button type="button">算算看政府花多少預算</button>
+    
+        <p>政府預估的補助花費是: <span class="estimateSubsidy"></span></p>
+        <p>真實花費的五倍券金額: <span class="couponTotalSpend"></span></p>
+        <p>刺激民間消費: <span class="increaseSpend"></span></p>
+    </div>
+    
+    
+    <script>
+        const units = ["","千","百萬","十億","兆"];
+        let obj = {
+            "eReceiveRatio":0.3,
+            "eUsedRatio":0.9,
+            "eTotalSpend":9000,
+            "pReceiveRatio":0.7,
+            "pUsedRatio":0.8,
+            "pTotalSpend":5900
+        };
+
+        function getFormData(){
+            const form = $("form");
+            return {
+                "population": parseInt(form.find("input[name=population]").val()),
+                "couponReceivedRatio": parseFloat(form.find("input[name=coupon-receive-ratio]").val())/100,
+                "coupon": parseInt(form.find("input[name=coupon]").val())
+            };
+        }
+
+        function coculateResult(){
+            const {population, couponReceivedRatio, coupon, eReceiveRatio, eUsedRatio, eTotalSpend, pReceiveRatio, pUsedRatio, pTotalSpend} = obj;
+            let couponReceivedPopulation = population * couponReceivedRatio;
+            let eCouponUsedPopulation = couponReceivedPopulation * eReceiveRatio * eUsedRatio;
+            let pCouponUsedPopulation = couponReceivedPopulation * pReceiveRatio * pUsedRatio;
+
+            return {
+                "estimateSubsidy":couponReceivedPopulation * coupon,
+                "couponTotalSpend": (eCouponUsedPopulation + pCouponUsedPopulation) * coupon,
+                "increaseSpend":eCouponUsedPopulation * eTotalSpend + pCouponUsedPopulation * pTotalSpend
+            }
+        }   
+
+        function transUnit(val){
+            return `${(val/Math.pow(10,Math.floor(Math.log10(val)/3)*3)).toFixed(4)}${units[Math.floor(Math.log10(val)/3)]}`;
+        }
+
+        function printResult(data){
+            $(".estimateSubsidy").text(transUnit(data.estimateSubsidy));
+            $(".couponTotalSpend").text(transUnit(data.couponTotalSpend));
+            $(".increaseSpend").text(transUnit(data.increaseSpend));
+        }   
+
+        $("button").click(()=>{
+            obj = Object.assign(obj,getFormData());
+            let result = coculateResult();
+            printResult(result);
+        });
+        
+
+
+    </script>
+</body>
+</html>

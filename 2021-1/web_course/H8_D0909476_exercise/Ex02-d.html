@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <style>
+        .list-group{
+            text-align: center;
+        }
+        .col-block {
+            margin: 10px 0px;
+        }
+
+        .num-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20%;
+            height: 0;
+            margin: 2%;
+            border: solid orange 1px;
+            border-radius: 50%;
+            padding-top: 10%;
+            padding-bottom: 10%;
+            color: red;
+        }
+
+        .num-block p {
+            margin: 0;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .line-change {
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">加碼券</h1>
+            <p class="lead">周周開獎，讓你好運領不完</p>
+        </div>
+    </div>
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">快來看看有沒有中獎</button>
+            </form>
+        </nav>
+        <div class="row justify-content-center list-group list-group-horizontal" id="list-tab" role="tablist">
+            <a class="col-2 winNo1 list-group-item list-group-item-action" data-toggle="list" role="tab" href="#winNo1-tab">第一周</a>
+            <a class="col-2 winNo2 list-group-item list-group-item-action" data-toggle="list" role="tab" href="#winNo2-tab">第二周</a>
+            <a class="col-2 winNo3 list-group-item list-group-item-action" data-toggle="list" role="tab" href="#winNo3-tab">第三周</a>
+            <a class="col-2 winNo4 list-group-item list-group-item-action" data-toggle="list" role="tab" href="#winNo4-tab">第四周</a>
+        </div>
+        <div class="tab-content">
+
+        </div>
+    </div>
+
+
+    <script>
+        let wins = {
+            winNo1:{
+                "domesticTravel": ["21", "32", "98", "67", "97", "410"],
+                "iYuan": ["64", "85"],
+                "agriculture": ["89", "32", "54", "597", "453", "152"],
+                "artFunE": ["96", "15", "07", "30", "73", "98", "19", "11"],
+                "artFunP": ["39", "37", "23", "36", "79", "08", "14", "75"],
+                "sports": ["97", "13", "19", "55", "71", "93", "381", "734", "644", "453", "985"],
+                "hakka": ["81", "900"],
+                "rgionalRevitalization": ["081", "105", "594", "188", "089", "396", "521", "467", "912", "798", "358", "441", "367", "941", "335"]
+            },
+            winNo2:{
+                "domesticTravel": ["87", "04", "40", "29", "71"],
+                "iYuan": ["12", "59"],
+                "agriculture": ["50", "13"],
+                "artFunE": ["78", "00", "39", "22", "61", "23", "15"],
+                "artFunP": ["37", "76", "31", "06", "51", "65", "81"],
+                "sports": ["91", "11", "04", "18", "57", "498", "756"],
+                "hakka": ["11", "439", "841", "052", "206", "161", "457", "205", "012", "293", "446", "589"],
+                "rgionalRevitalization": ["598", "880", "886", "675", "684", "568", "645", "456"]
+            },
+            winNo3:{
+                "domesticTravel": ["44", "34", "09", "55", "35", "041"],
+                "iYuan": ["48", "49"],
+                "agriculture": ["60", "75"],
+                "artFunE": ["01", "92", "19", "23", "79", "95", "48", "46"],
+                "artFunP": ["31", "56", "02", "52", "44", "49", "00", "47", "59"],
+                "sports": ["82", "45", "57", "53", "00", "546", "855", "865", "012", "983"],
+                "hakka": ["14", "269"],
+                "rgionalRevitalization": ["771", "706", "064", "168", "191", "459", "135", "314", "366"]
+            },
+            winNo4:{
+                "domesticTravel": ["32", "02", "87", "93", "82", "17"],
+                "iYuan": ["29", "82", "71"],
+                "agriculture": ["315", "740", "381", "264", "285", "765", "682", "763", "373", "015", "374"],
+                "artFunE": ["70", "61", "37", "85", "67", "35", "44"],
+                "artFunP": ["75", "72", "71", "28", "67", "82", "93", "56", "34", "07"],
+                "sports": ["30", "03", "51", "88"],
+                "hakka": ["69"],
+                "rgionalRevitalization": ["743", "201", "119", "828", "221", "750", "046"]
+            }
+        }
+
+        let name_mapping = {
+            "domesticTravel": "國旅劵",
+            "iYuan": "i 原劵",
+            "agriculture": "農遊劵",
+            "artFunE": "藝Fun劵 數位",
+            "artFunP": "藝Fun劵 紙本",
+            "sports": "動滋劵",
+            "hakka": "客庄劵",
+            "rgionalRevitalization": "地方創生劵"
+        };
+
+        let defaultDisplay = "winNo4";
+        $(`#list-tab .${defaultDisplay}`).addClass("active");    
+        let tab_content = $(".tab-content");
+        let winSearchHash = {};
+        
+        for(const week in wins){
+            let content = $("<div></div>").addClass(`tab-pane ${week.toString()===defaultDisplay?"active":""}`).attr({"id":`${week.toString()}-tab`,"role":"tabpanel"});
+            let row = $("<div></div>").addClass("row");
+            for (const couponType in name_mapping) {
+                let col = $("<div></div>").addClass("col-block col-6 col-sm-6 col-md-3").addClass("flex flex-col");
+                let img = $("<img>").attr({ "src": `./img/${couponType.toString()}.png`, "alt": `${couponType.toString()} img` }).addClass("img-fluid");
+                let title = $("<p></p>").html(name_mapping[couponType]);
+                let winNums = $("<div></div>").addClass("flex line-change");
+                
+                for (const num of wins[week][couponType]) {
+                    let numBlock = $("<div></div>").append($("<p></p>").html(num)).addClass("num-block");
+                    winNums.append(numBlock);
+                    if(winSearchHash[num]){
+                        winSearchHash[num].add(name_mapping[couponType]);
+                    }else{
+                        winSearchHash[num] = new Set();
+                        winSearchHash[num].add(name_mapping[couponType]);
+                    }
+                }
+                
+                col.append(img, title, winNums);
+                row.append(col);
+                content.append(row);
+            }
+            tab_content.append(content);
+            $(`#list-tab a[class=${week.toString()}]`).on("click",()=>{
+                event.preventDefault();
+                $(this).tab("show");
+            })
+        }
+        
+        function searchId(){
+            let target = $(".form-control").val();
+
+            let less2 = winSearchHash[target.slice(-2)]?Array.from(winSearchHash[target.slice(-2)]):[];
+            let less3 = winSearchHash[target.slice(-3)]?Array.from(winSearchHash[target.slice(-3)]):[];
+            let all = less2.concat(less3);
+            alert(all.length?`恭喜你抽中以下加碼券:${all.join(", ")}`:"沒有中獎紀錄");
+        }
+        $("button").click(searchId);
+
+        
+
+        
+        
+    </script>
+</body>
+
+</html>

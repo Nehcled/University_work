@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <style>
+        .jumbotron {
+            background-image: url("https://picsum.photos/id/598/600/400");
+            margin: 0;
+        }
+
+        .inf-box p {
+            height: 200px;
+            overflow: scroll;
+        }
+
+        .inf-box p::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="jumbotron jumbotron-fluid text-white">
+                    <div class="container">
+                        <h1 class="display-4">Tako Fan</h1>
+                        <p class="lead">Wah Wah Wah Wah~~~</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="jumbotron jumbotron-fluid text-white">
+                    <div class="container">
+                        <h1 class="display-4">Tako Fan</h1>
+                        <p class="lead">Wah Wah Wah Wah~~~</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="jumbotron jumbotron-fluid text-white">
+                    <div class="container">
+                        <h1 class="display-4">Tako Fan</h1>
+                        <p class="lead">Wah Wah Wah Wah~~~</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Library</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Data</li>
+        </ol>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3 col-sm-3">
+                <ul class="list-group">
+                    <li class="list-group-item active" aria-current="true">An active item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                    <li class="list-group-item">A fourth item</li>
+                    <li class="list-group-item">And a fifth one</li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-md-9">
+                <h1> Today Spcial </h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti facilis harum commodi,repellendu
+                    commodi molestias vel neque praesentium.</p>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-3 col-sm-3 inf-box">
+                <h3 class="title">
+                    苔原狼
+                </h3>
+
+                <img class="img-fluid picture"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/%D0%92%D0%BE%D0%BB%D0%BA_3.jpg/375px-%D0%92%D0%BE%D0%BB%D0%BA_3.jpg">
+
+                <p class="description">
+                    苔原狼（學名：Canis lupus
+                    albus）是狼的一個亞種，分布於歐亞大陸北部的苔原及叢林地帶。體型較大。雄性體長118-137厘米，重40-49公斤；雌性體長112-136厘米，重36.6-41公斤。毛髮稠密，毛色較淺，灰色或銀灰色。
+                </p>
+            </div>
+            <div class="col-12 col-md-3 col-sm-3 inf-box">
+                <h3 class="title">
+                    阿拉伯狼
+                </h3>
+
+                <img class="img-fluid picture"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Canis_lupus_arabs_head_front.JPG/330px-Canis_lupus_arabs_head_front.JPG">
+
+                <p class="description">
+                    阿拉伯狼（學名：Canis lupus
+                    arabs）[2]是狼的一個亞種。曾經廣泛分佈於阿拉伯半島，但現在僅生活在以色列南部、阿曼、葉門、約旦、沙烏地阿拉伯等地的較小範圍內，在埃及西奈半島的部分地區可能也有分布。
+                </p>
+            </div>
+            <div class="col-12 col-md-3 col-sm-3 inf-box">
+                <h3 class="title">
+                    北極狼
+                </h3>
+
+                <img class="img-fluid picture"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Polarwolf004.jpg/375px-Polarwolf004.jpg">
+
+                <p class="description">
+                    北極狼（學名：Canis lupus arctos），又稱白狼，是犬科的哺乳動物，也是灰狼的亞種，分佈於歐亞大陸北部、加拿大北部和格陵蘭北部。
+                </p>
+            </div>
+            <div class="col-12 col-md-3 col-sm-3 inf-box">
+                <h3 class="title">
+                    墨西哥狼
+                </h3>
+                <img class="img-fluid picture"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Mexican_Wolf_2_yfb-edit_1.jpg/330px-Mexican_Wolf_2_yfb-edit_1.jpg">
+                <p class="description">
+                    墨西哥狼（Canis lupus baileyi）是狼的最為稀少及遺傳上較疏離的亞種，分佈在北美洲。
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-3 col-sm-3 inf-box">
+                <h3 class="title">
+                    藏狼
+                </h3>
+
+                <img class="img-fluid picture"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Keulemans_chanco_wolf.png/330px-Keulemans_chanco_wolf.png">
+
+                <p class="description">
+                    藏狼（學名：Canis lupus
+                    chanco）也稱中國狼，是狼的一個亞種，分布於中亞、蒙古、中國北部、朝鮮半島以及喜馬拉雅山地區等地。曾經與蒙古狼被認定為同一種。體長1.5～1.7米，高68～76厘米，重20～30千克。腿短。毛髮濃密，顏色隨季節變化。部分科學家認為藏狼可能為家犬的祖先。
+                </p>
+            </div>
+            <div class="col-12 col-md-3 col-sm-3 inf-box">
+                <h3 class="title">
+                    犬
+                </h3>
+
+                <img class="img-fluid picture"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Coat_types_3.jpg/330px-Coat_types_3.jpg">
+
+                <p class="description">
+                    犬（學名：Canis lupus
+                    familiaris）[1]，現代俗稱為狗，一種常見的犬科哺乳動物，與狼為同一種動物，生物學分類上是狼的一個亞種。狗是人類最早馴養的一個物種。有人飼養的稱為家犬，無人飼養的狗稱常被稱為「野狗」或「流浪狗」，可能對環境與其他生物造成影響，是世界百大外來入侵種之一。狗的壽命最多可超過二十年，平均則為十數年，與貓的平均壽命相近。若無發生意外，平均壽命以小型犬為長。
+                </p>
+            </div>
+            <div class="col-12 col-md-3 col-sm-3 inf-box">
+                <h3 class="title">
+                    北海道狼
+                </h3>
+
+                <img class="img-fluid picture"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Yezo_wolf_at_Hokkaido_University.jpg/330px-Yezo_wolf_at_Hokkaido_University.jpg">
+
+                <p class="description">
+                    北海道狼（學名：Canis lupus hattai），日本稱 蝦夷狼，俄羅斯稱
+                    薩哈林狼，是一個已滅絕的狼亞種，儘管IUCN尚未對該亞種進行評估，但可證實該亞種於1889年滅絕，曾分佈於日本北海道島、俄羅斯薩哈林島及千島群島一帶。由於棲息地被人類開發，並因威脅家畜而遭農民大量毒殺，同時被家畜散播的狂犬病和犬瘟熱病毒傳染，北海道狼於
+                    1889 年滅絕，後由日本學者岸田久吉（英文：Kyukichi Kishida）在 1931 年將其命名為獨立的狼亞種。
+                </p>
+            </div>
+            <div class="col-12 col-md-3 col-sm-3 inf-box">
+                <h3 class="title">
+                    日本狼
+                </h3>
+                <img class="img-fluid picture"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Honshu-wolf4.jpg/375px-Honshu-wolf4.jpg">
+                <p class="description">
+                    日本狼（學名：Canis lupus hodophilax）又稱 本州狼，是一個已滅絕的狼亞種，曾分佈於日本本州島、四國島和九州島，因被人類大量獵殺而在 1905
+                    年滅絕，據信為體型最小的狼之一。其學名轉化自希臘文單詞 Hodos（道路）和
+                    phylax（保衛者），來源於日本民間傳說，在傳說中狼被描繪成了旅行者的守護神。日文漢字「狼」的發音也與「大神」相同，因此也有以日本狼為主角的遊戲《大神》。
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
