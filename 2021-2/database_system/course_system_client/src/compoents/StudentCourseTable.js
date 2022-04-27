@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Button, Form, FormControl } from 'react-bootstrap'
+import { Table, Button, Form, FormControl } from 'react-bootstrap'
 import Course from './Course';
 
 class StudentCourseTable extends React.Component {
@@ -25,13 +25,12 @@ class StudentCourseTable extends React.Component {
         }
 
         const response = await fetch('/api/courseTable', requestOptions);
-        if(!response.ok){
+        if (!response.ok) {
             alert("未搜尋到該學號，請重新輸入或聯絡客服人員!")
-        }else{
+        } else {
             const json = await response.json();
             this.setState({ courseData: json });
         }
-        
     }
 
     async handleCourseSelect(id) {
@@ -64,7 +63,7 @@ class StudentCourseTable extends React.Component {
     }
 
     async handleSubmit(event) {
-        event.target[0].value="";
+        event.target[0].value = "";
         event.preventDefault();
         const requestOptions = {
             method: 'POST',
@@ -75,48 +74,46 @@ class StudentCourseTable extends React.Component {
             })
         }
         const response = await fetch('/api/select', requestOptions);
-        const json = await response.json();
-        switch (json.selectStatus) {
-            case 1:
-                this.loadCourseData();
-                alert("加選成功");
-                break;
-            case 2:
-                alert("加選失敗，課程人數已滿!");
-                break;
-            case 3:
-                alert("加選失敗，超出可選學分數!");
-                break;
-            case 4:
-                alert("加選失敗，已選擇同名課程!");
-                break;
-            case 5:
-                alert("加選失敗，課程衝堂!");
-                break;
-            default:
-                alert("System Error! 4044");
+        if (!response.ok) {
+            const json = await response.json();
+            alert(json?.message);
+        }else{
+            const json = await response.json();
+            alert(json?.message);
+            this.loadCourseData();
         }
-        console.log(event);
     }
 
     render() {
         const courseData = this.state.courseData || [];
-        console.log(courseData);
-        const courseList = courseData?.map((course, i) => (
-            <Course key={i} courseData={course} onCourseSelect={(courseId) => this.handleCourseSelect(courseId)} />
+        const courseList = courseData?.map((course) => (
+            <Course key={course.section} courseData={course} onCourseSelect={(courseId) => this.handleCourseSelect(courseId)} />
         )) || [];
-        console.log(courseList);
+        // console.log(courseData);
         return (
             <div className='course-table'>
                 <h1>學生{this.state.studentId}已選擇的課程</h1>
                 <div className='course-list'>
-                    <Stack gap={courseList.length}>
-                        {courseList}
-                    </Stack>
+                    <Table striped bordered hover size="sm">
+                        <thead>
+                            <tr>
+                                <th>課程編號</th>
+                                <th>課程</th>
+                                <th>課程描述</th>
+                                <th>教師</th>
+                                <th>必選修</th>
+                                <th>節次</th>
+                                <th>退選</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {courseList}
+                        </tbody>
+                    </Table>
                     <Form horizontal='true' onSubmit={(e) => this.handleSubmit(e)}>
                         <h1>加選課程</h1>
                         <div className='line-form'>
-                            <FormControl className='form-control' type='text' placeholder='課程編號' onBlur={(e) => this.handleChange(e)} />
+                            <FormControl className='form-control' type='text' placeholder='課程編號' onChange={(e) => this.handleChange(e)} />
                             <Button className='button' variant='primary' type='submit'>加選</Button>
                         </div>
                     </Form>

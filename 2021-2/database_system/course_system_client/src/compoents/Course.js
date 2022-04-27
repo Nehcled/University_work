@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Button } from 'react-bootstrap';
 
 class Course extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            courseData: this.props.courseData
+            courseData: this.props.courseData,
+            transform: ["大神澪", "一", "二", "三", "四", "五", "六", "日"],
         }
     }
 
@@ -20,21 +21,26 @@ class Course extends React.Component {
             this.props.onCourseSelect(course_instance_id);
         }
     }
+    sectionTransform(section) {
+        const { transform } = this.state;
+        return `星期${transform[Math.floor(section / 100)]}第${section % 100}節`;
+    }
 
     render() {
-        const { course_instance_id, course_id, course_name, discription, required, section, teacher_name } = this.state.courseData;
+        const { course_instance_id, course_name, description, required, section, teacher_name } = this.state.courseData;
         const courseStatus = "退選";
         return (
-            <div className='course'>
-                <p>{course_instance_id}</p>
-                <p>{course_id}</p>
-                <p>{course_name}</p>
-                <p>{discription}</p>
-                <p>{teacher_name}</p>
-                <p>{required}</p>
-                <p>{section}</p>
-                <Button onClick={() => this.checkIsRequired()}>{courseStatus}</Button>
-            </div>
+            <Fragment>
+                <tr>
+                    <td>{course_instance_id}</td>
+                    <td>{course_name}</td>
+                    <td>{description}</td>
+                    <td>{teacher_name}</td>
+                    <td>{required}</td>
+                    <td>{this.sectionTransform(section)}</td>
+                    <td><Button onClick={() => this.checkIsRequired()}>{courseStatus}</Button></td>
+                </tr>
+            </Fragment>
         )
     }
 }

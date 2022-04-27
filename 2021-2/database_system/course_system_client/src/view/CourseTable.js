@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Button, Form, FormControl } from 'react-bootstrap'
+import { Button, Form, FormControl, Table } from 'react-bootstrap'
 import Course from '../compoents/Course';
 
 class CourseTable extends React.Component {
@@ -102,9 +102,20 @@ class CourseTable extends React.Component {
             <div className='course-table'>
                 <h1>學生{this.state.studentId}已選擇的課程</h1>
                 <div className='course-list'>
-                    <Stack gap={courseData.length}>
-                        {courseList}
-                    </Stack>
+                    <Table striped bordered hover size="sm">
+                        <thead>
+                            <tr>
+                                <th>課程編號</th>
+                                <th>課程</th>
+                                <th>課程描述</th>
+                                <th>教師</th>
+                                <th>必選修</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {courseList}
+                        </tbody>
+                    </Table>
                     <Form horizontal='true' onSubmit={(e) => this.handleSubmit(e)}>
                         <h1>加選課程</h1>
                         <FormControl type='text' placeholder='課程編號' onBlur={(e) => this.handleChange(e)} />
@@ -112,7 +123,7 @@ class CourseTable extends React.Component {
                     </Form>
                 </div>
 
-            </div>
+            </div >
         )
     }
 
