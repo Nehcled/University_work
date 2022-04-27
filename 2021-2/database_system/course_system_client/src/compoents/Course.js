@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Button } from 'react-bootstrap';
+import InputModal from './InputModal';
 
 class Course extends React.Component {
     constructor(props) {
@@ -15,10 +16,10 @@ class Course extends React.Component {
         if (required) {
             const confirm = window.confirm("此為必修課程，確定要退選嗎?")
             if (confirm) {
-                this.props.onCourseSelect(course_instance_id);
+                this.props.onCourseDeselect(course_instance_id);
             }
         } else {
-            this.props.onCourseSelect(course_instance_id);
+            this.props.onCourseDeselect(course_instance_id);
         }
     }
     sectionTransform(section) {
@@ -28,7 +29,7 @@ class Course extends React.Component {
 
     render() {
         const { course_instance_id, course_name, description, required, section, teacher_name } = this.state.courseData;
-        const courseStatus = "退選";
+        const handleCourseSelect = this.props.onCourseSelect;
         return (
             <Fragment>
                 <tr>
@@ -38,7 +39,10 @@ class Course extends React.Component {
                     <td>{teacher_name}</td>
                     <td>{required}</td>
                     <td>{this.sectionTransform(section)}</td>
-                    <td><Button onClick={() => this.checkIsRequired()}>{courseStatus}</Button></td>
+                    <td>{handleCourseSelect ?
+                        <InputModal onClick={()=>handleCourseSelect()} /> :
+                        <Button onClick={()=>this.checkIsRequired()}>退選</Button>
+                    }</td>
                 </tr>
             </Fragment>
         )

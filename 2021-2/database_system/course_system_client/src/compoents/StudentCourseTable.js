@@ -33,26 +33,23 @@ class StudentCourseTable extends React.Component {
         }
     }
 
-    async handleCourseSelect(id) {
+    async handleCourseDeselect(id) {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 studentId: this.state.studentId,
-                courseInstanceId: id
+                courseId: id
             })
         }
         const response = await fetch('/api/deselect', requestOptions);
-        const json = await response.json();
-        switch (json.selectStatus) {
-            case 1:
-                this.loadCourseData();
-                alert("退選成功");
-                break;
-            case 2:
-                break;
-            default:
-                alert("System Error! 4044");
+        if (!response.ok) {
+            const json = await response.json();
+            alert(json?.message);
+        }else{
+            const json = await response.json();
+            alert(json?.message);
+            this.loadCourseData();
         }
     }
 
@@ -87,7 +84,7 @@ class StudentCourseTable extends React.Component {
     render() {
         const courseData = this.state.courseData || [];
         const courseList = courseData?.map((course) => (
-            <Course key={course.section} courseData={course} onCourseSelect={(courseId) => this.handleCourseSelect(courseId)} />
+            <Course key={course.section} courseData={course} onCourseDeselect={(courseId) => this.handleCourseDeselect(courseId)} />
         )) || [];
         // console.log(courseData);
         return (

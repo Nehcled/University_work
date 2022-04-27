@@ -1,12 +1,11 @@
 import React from 'react';
 import { Button, Form, FormControl, Table } from 'react-bootstrap'
 import Course from '../compoents/Course';
-
 class CourseTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            studentId: this.props.studentId,
+            courseData:[]
         }
     }
 
@@ -17,39 +16,14 @@ class CourseTable extends React.Component {
     async loadCourseData() {
         const requestOptions = {
             method: 'POST',
-            header: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                studentId: this.state.studentId,
-            })
+            header: { 'Content-Type': 'application/json' }
         }
 
-        const response = await fetch('http://localhost/courseTable', requestOptions);
+        const response = await fetch('/api/instanceCourse', requestOptions);
         const json = await response.json();
         this.setState({ courseData: json.courseData });
     }
 
-    async handleCourseSelect(id) {
-        const requestOptions = {
-            method: 'POST',
-            header: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                studentId: this.state.studentId,
-                courseId: id
-            })
-        }
-        const response = await fetch('http://localhost/api/select', requestOptions);
-        const json = await response.json();
-        switch (json.selectStatus) {
-            case 1:
-                this.loadCourseData();
-                alert("退選成功");
-                break;
-            case 2:
-                break;
-            default:
-                alert("System Error! 4044");
-        }
-    }
 
     handleChange(event) {
         console.log(event);
@@ -68,39 +42,20 @@ class CourseTable extends React.Component {
                 courseId: this.state.targetCoruseId
             })
         }
-        const response = await fetch('http://localhost/submit', requestOptions);
+        const response = await fetch('/api/submit', requestOptions);
         const json = await response.json();
-        console.log(json);
-        switch (json.selectStatus) {
-            case 1:
-                this.loadCourseData();
-                alert("加選成功");
-                break;
-            case 2:
-                alert("加選失敗，課程人數已滿!");
-                break;
-            case 3:
-                alert("加選失敗，超出可選學分數!");
-                break;
-            case 4:
-                alert("加選失敗，已選擇同名課程!");
-                break;
-            case 5:
-                alert("加選失敗，課程衝堂!");
-                break;
-            default:
-                alert("System Error! 4044");
-        }
+      
     }
 
     render() {
         const courseData = this.state.courseData || [];
-        const courseList = courseData.map((course, i) => (
-            <Course key={i} course={course} onCourseSelect={(courseId) => this.handleCourseSelect(courseId)} />
-        ))
+        const courseList = courseData?.map((course) => (
+            <Course key={course} courseData={course} onCourseSelect={(courseId) => this.handleCourseSelect(courseId)} />
+        )) || [];
+        // console.log(courseData);
         return (
             <div className='course-table'>
-                <h1>學生{this.state.studentId}已選擇的課程</h1>
+                <h1>已登記課程</h1>
                 <div className='course-list'>
                     <Table striped bordered hover size="sm">
                         <thead>
@@ -110,17 +65,15 @@ class CourseTable extends React.Component {
                                 <th>課程描述</th>
                                 <th>教師</th>
                                 <th>必選修</th>
+                                <th>節次</th>
+                                <th>加選</th>
                             </tr>
                         </thead>
                         <tbody>
                             {courseList}
                         </tbody>
                     </Table>
-                    <Form horizontal='true' onSubmit={(e) => this.handleSubmit(e)}>
-                        <h1>加選課程</h1>
-                        <FormControl type='text' placeholder='課程編號' onBlur={(e) => this.handleChange(e)} />
-                        <Button variant='primary' type='submit'>加選</Button>
-                    </Form>
+
                 </div>
 
             </div >
