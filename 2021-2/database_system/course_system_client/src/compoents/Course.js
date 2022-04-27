@@ -5,31 +5,34 @@ class Course extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            courseData: this.props.course,
-            courseIsSelected: this.props.course.courseIsSelected,
-            isRequired: this.props.course.isRequired
+            courseData: this.props.courseData
         }
     }
 
-    checkIsRequired() { 
-        const { id } = this.state.courseData
-        if(this.state.isRequired){
+    checkIsRequired() {
+        const { course_instance_id, required } = this.state.courseData;
+        if (required) {
             const confirm = window.confirm("此為必修課程，確定要退選嗎?")
-            if(confirm){
-                this.props.onCourseSelect(id);
+            if (confirm) {
+                this.props.onCourseSelect(course_instance_id);
             }
-        }else{
-            this.props.onCourseSelect(id);
+        } else {
+            this.props.onCourseSelect(course_instance_id);
         }
     }
 
     render() {
-        const courseStatus = this.state.courseIsSelected ? "退選" : "加選";
-        const { title, discription } = this.state.courseData;
+        const { course_instance_id, course_id, course_name, discription, required, section, teacher_name } = this.state.courseData;
+        const courseStatus = "退選";
         return (
             <div className='course'>
-                <p className="title">{title}</p>
+                <p>{course_instance_id}</p>
+                <p>{course_id}</p>
+                <p>{course_name}</p>
                 <p>{discription}</p>
+                <p>{teacher_name}</p>
+                <p>{required}</p>
+                <p>{section}</p>
                 <Button onClick={() => this.checkIsRequired()}>{courseStatus}</Button>
             </div>
         )
